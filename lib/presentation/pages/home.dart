@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:testing_flutter/authentication.dart';
 import 'package:testing_flutter/presentation/manager/app_state.dart';
-import 'package:testing_flutter/presentation/pages/say_thanks.dart';
+import 'package:testing_flutter/presentation/widgets/command_detail.dart';
 import 'package:testing_flutter/presentation/widgets/pizza_list.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -32,13 +32,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         body: const PizzaList(),
         floatingActionButton: FloatingActionButton(
-          child: Text('${provider.orders.length}'),
+          child: Text('${provider.pizzas}'),
           onPressed: () {
-            provider.orders.clear();
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const SayThanks(),
+                builder: (context) => const CommandDetail(),
               ),
             );
           },

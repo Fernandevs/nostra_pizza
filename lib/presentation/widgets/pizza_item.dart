@@ -26,13 +26,11 @@ class _PizzaItemState extends State<PizzaItem> {
         child: GestureDetector(
           onTap: () {
             final snackBar = SnackBar(
-              content: Text('Haz agregado la orden ${widget.pizza}'),
+              content: Text('Haz agregado la orden ${widget.pizza.title}'),
             );
 
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
             Provider.of<ApplicationState>(context, listen: false).addOrder(widget.pizza);
-
-            debugPrint('\nOrder:\n ${ Provider.of<ApplicationState>(context, listen: false).orders }');
           },
           child: Row(
             children: <Widget>[
